@@ -566,26 +566,65 @@ footer{background:#fff;color:var(--ink);padding:35px 0;border-top:1px solid var(
       <h2>Have a brand that needs <br> <em>better creative?</em></h2>
       <p class="cta-copy">Tell us what you're building, what isn't working, or simply what you want to make. We'll figure out the creative direction from there.</p>
     </div>
-    <form class="form" onsubmit="handleSubmit(event)">
-      <h3>Let's make something.</h3>
-      <div class="field"><label>Name</label><input type="text" placeholder="Your name" required></div>
-      <div class="field"><label>Brand / Company</label><input type="text" placeholder="Brand name"></div>
-      <div class="field"><label>Email</label><input type="email" placeholder="you@company.com" required></div>
-      <div class="field">
-        <label>What do you need?</label>
-        <select>
-          <option>Campaign Creative</option>
-          <option>Performance Creatives</option>
-          <option>Branding / Identity</option>
-          <option>AI Creative / Video</option>
-          <option>Print / OOH</option>
-          <option>Something else</option>
-        </select>
-      </div>
-      <div class="field"><label>Tell us a little about it</label><textarea placeholder="Project, timeline, challenge, budget — whatever helps."></textarea></div>
-      <button type="submit">Send Project Brief →</button>
-      <p id="formMessage" style="display:none;text-align:center;font-size:12px;color:#6D6967;margin-top:12px">Thanks — your brief is ready. Connect this form to your preferred form backend to receive submissions.</p>
-    </form>
+<form action="https://formspree.io/f/mppzgkjl" method="POST" class="form">
+  <h3>Let's make something.</h3>
+
+  <div class="field">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Your name"
+      required
+    >
+  </div>
+
+  <div class="field">
+    <label for="company">Brand / Company</label>
+    <input
+      type="text"
+      id="company"
+      name="company"
+      placeholder="Brand name"
+    >
+  </div>
+
+  <div class="field">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="you@company.com"
+      required
+    >
+  </div>
+
+  <div class="field">
+    <label for="service">What do you need?</label>
+    <select id="service" name="service">
+      <option value="Campaign Creative">Campaign Creative</option>
+      <option value="Performance Creatives">Performance Creatives</option>
+      <option value="Branding / Identity">Branding / Identity</option>
+      <option value="AI Creative / Video">AI Creative / Video</option>
+      <option value="Print / OOH">Print / OOH</option>
+      <option value="Something else">Something else</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="message">Tell us a little about it</label>
+    <textarea
+      id="message"
+      name="message"
+      placeholder="Project, timeline, challenge, budget — whatever helps."
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit">Send Project Brief →</button>
+</form>
   </div>
 </section>
 
@@ -600,10 +639,6 @@ footer{background:#fff;color:var(--ink);padding:35px 0;border-top:1px solid var(
 </footer>
 
 <script>
-function handleSubmit(e){
-  e.preventDefault();
-  document.getElementById('formMessage').style.display='block';
-}
 </script>
 </body>
 </html>
