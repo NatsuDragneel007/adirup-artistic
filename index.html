@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adirup Artistic — Creative That Thinks.</title>
+<meta name="description" content="Adirup Artistic — Creative, campaigns, AI-powered visual thinking, motion, print and performance design.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+
+:root{
+  --orange:#FF9D18;
+  --orange-soft:#FFF4E2;
+  --ink:#211F20;
+  --muted:#6D6967;
+  --line:#E9E6E2;
+  --paper:#FFFFFF;
+  --off:#FAF9F7;
+  --max:1240px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"DM Sans",Arial,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.55;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:min(var(--max),calc(100% - 48px));margin:auto}
+
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(233,230,226,.85);
+}
+.nav-inner{
+  height:100px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{width:120px;height:auto}
+.nav-links{display:flex;gap:30px;align-items:center;font-size:13px;font-weight:600}
+.nav-links a{color:#444;transition:.2s}
+.nav-links a:hover{color:var(--orange)}
+.nav-cta{
+  background:var(--ink);color:#fff!important;padding:12px 18px;border-radius:999px;
+}
+.nav-cta:hover{background:var(--orange);color:var(--ink)!important}
+
+/* HERO */
+.hero{min-height:calc(100vh - 78px);display:grid;place-items:center;padding:90px 0 80px;position:relative;overflow:hidden}
+.hero:before{
+  content:"";position:absolute;width:580px;height:580px;border-radius:50%;
+  background:var(--orange-soft);right:-260px;top:-160px;z-index:-1;
+}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:80px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+  color:#5F5A56;margin-bottom:25px;
+}
+.eyebrow:before{content:"";width:28px;height:2px;background:var(--orange)}
+h1{
+  font-size:clamp(46px,5.5vw,76px);line-height:.94;letter-spacing:-.055em;
+  max-width:850px;font-weight:600;
+}
+h1 em{font-family:"Playfair Display",serif;font-weight:500;font-style:italic;color:var(--orange)}
+.hero-copy{font-size:18px;color:var(--muted);max-width:600px;margin:30px 0 34px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:14px 22px;border-radius:999px;font-size:13px;font-weight:700;
+  border:1px solid var(--ink);transition:.2s;
+}
+.btn.primary{background:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.btn.secondary:hover{background:var(--off)}
+.hero-card{
+  background:var(--ink);color:#fff;border-radius:28px;padding:42px;
+  min-height:430px;display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;
+}
+.hero-card:after{
+  content:"";position:absolute;width:300px;height:300px;border-radius:50%;
+  border:1px solid rgba(255,157,24,.55);right:-80px;bottom:-80px;
+  box-shadow:0 0 0 55px rgba(255,157,24,.05),0 0 0 110px rgba(255,157,24,.035);
+}
+.hero-card .mini{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:#BDB8B4}
+.hero-card h2{font-size:46px;line-height:1;letter-spacing:-.04em;max-width:380px;position:relative;z-index:1}
+.hero-card h2 span{color:var(--orange)}
+.hero-card-bottom{display:flex;justify-content:space-between;align-items:end;position:relative;z-index:1}
+.hero-number{font-size:88px;line-height:.8;font-weight:700;color:var(--orange)}
+.hero-small{font-size:12px;color:#C9C4C0;max-width:155px;text-align:right}
+
+/* SECTIONS */
+section{padding:115px 0}
+.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:48px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.18em;font-weight:700;color:var(--orange);margin-bottom:13px}
+.section-title{font-size:clamp(34px,4vw,52px);line-height:.98;letter-spacing:-.045em;max-width:780px}
+.section-desc{color:var(--muted);max-width:430px;font-size:15px}
+.rule{height:1px;background:var(--line)}
+
+/* ABOUT */
+.about{background:var(--off)}
+.about-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:80px}
+.about-big{font-size:clamp(30px,4vw,52px);line-height:1.05;letter-spacing:-.035em}
+.about-big strong{font-weight:700}
+.about-copy{color:var(--muted);font-size:16px;max-width:690px}
+.about-copy p+p{margin-top:20px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:42px;padding-top:28px;gap:25px}
+.stat strong{font-size:34px;letter-spacing:-.04em}
+.stat span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.service{
+  padding:34px 28px 35px 0;border-bottom:1px solid var(--line);
+  min-height:235px;
+}
+.service:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--line)}
+.service-num{font-size:11px;color:#999;margin-bottom:38px}
+.service h3{font-size:24px;letter-spacing:-.025em;margin-bottom:11px}
+.service p{font-size:14px;color:var(--muted);max-width:330px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.tag{font-size:10px;padding:6px 9px;border:1px solid var(--line);border-radius:999px;color:#666}
+
+/* CAMPAIGNS */
+.campaigns{background:var(--ink);color:#fff}
+.campaigns .section-desc{color:#BDB8B4}
+.campaign-tabs{display:flex;gap:8px;margin-bottom:28px}
+.tab{
+  padding:10px 15px;border:1px solid #484546;border-radius:999px;
+  font-size:12px;color:#C5C0BD
+}
+.tab.active{background:var(--orange);border-color:var(--orange);color:var(--ink);font-weight:700}
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.project{
+  border:1px solid #3C3A3A;border-radius:22px;overflow:hidden;background:#292728;
+}
+.placeholder{
+  min-height:390px;background:
+    linear-gradient(135deg,rgba(255,157,24,.10),transparent 45%),
+    repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 1px,transparent 1px 12px);
+  display:flex;align-items:center;justify-content:center;
+  color:#807A77;font-size:11px;text-transform:uppercase;letter-spacing:.18em;
+}
+.project-info{padding:24px}
+.project-info .type{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--orange)}
+.project-info h3{font-size:28px;letter-spacing:-.03em;margin:7px 0}
+.project-info p{font-size:13px;color:#AAA4A1}
+.project-meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}
+.project-meta span{border:1px solid #494647;border-radius:999px;padding:5px 8px;font-size:10px;color:#BDB8B4}
+
+/* AI DIFFERENCE */
+.ai{background:var(--off)}
+.ai-compare{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ai-card{padding:40px;border:1px solid var(--line);border-radius:24px;background:#fff}
+.ai-card.featured{background:var(--ink);color:#fff;border-color:var(--ink);position:relative}
+.ai-card.featured:before{
+  content:"THE ADIRUP APPROACH";position:absolute;right:25px;top:25px;
+  color:var(--orange);font-size:12px;letter-spacing:.16em;font-weight:700;
+}
+.ai-card h3{font-size:31px;letter-spacing:-.035em;margin-bottom:16px}
+.ai-card p{color:var(--muted);font-size:14px;margin-bottom:25px;max-width:500px}
+.ai-card.featured p{color:#BDB8B4}
+.ai-list{list-style:none;display:grid;gap:12px}
+.ai-list li{font-size:13px;display:flex;gap:11px;align-items:flex-start}
+.ai-list li:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);margin-top:7px;flex:none}
+.ai-note{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:#777}
+.ai-card.featured .ai-note{border-color:#444;color:#A9A4A1}
+
+/* SAMPLES */
+.samples-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sample{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
+.sample .placeholder{min-height:300px;background:var(--off);color:#A09A96}
+.sample-content{padding:21px}
+.sample-content h3{font-size:19px;margin-bottom:5px}
+.sample-content p{font-size:12px;color:var(--muted)}
+
+/* PRINT */
+.print{background:var(--off)}
+.media-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+.media-large,.media-small{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.media-large .placeholder{min-height:520px}
+.media-small .placeholder{min-height:250px}
+.media-stack{display:grid;gap:18px}
+.media-caption{padding:18px 20px}
+.media-caption h3{font-size:20px}
+.media-caption p{font-size:12px;color:var(--muted);margin-top:3px}
+
+/* MOTION */
+.motion{background:#fff}
+.motion-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+.motion-card{border-radius:22px;background:var(--ink);color:#fff;padding:27px;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.motion-card:after{content:"▶";font-size:100px;position:absolute;right:15px;top:80px;color:rgba(255,157,24,.14)}
+.motion-card .motion-num{font-size:10px;letter-spacing:.15em;color:#A9A4A1}
+.motion-card h3{font-size:28px;line-height:1.02;letter-spacing:-.03em;max-width:250px;position:relative;z-index:2}
+.motion-card p{font-size:12px;color:#BDB8B4;max-width:280px;position:relative;z-index:2}
+
+/* CTA */
+.cta{padding:120px 0;background:var(--orange)}
+.cta-grid{display:grid;grid-template-columns:1fr .8fr;gap:80px;align-items:start}
+.cta h2{font-size:clamp(42px,5.5vw,72px);line-height:.91;letter-spacing:-.055em;max-width:760px}
+.cta h2 em{font-family:"Playfair Display",serif;font-style:italic;font-weight:500}
+.cta-copy{font-size:15px;margin-top:28px;max-width:530px;color:#4E4031}
+.form{background:#fff;border-radius:24px;padding:28px}
+.form h3{font-size:24px;margin-bottom:20px;letter-spacing:-.03em}
+.field{margin-bottom:13px}
+.field label{font-size:10px;text-transform:uppercase;letter-spacing:.13em;font-weight:700;color:#777;display:block;margin-bottom:6px}
+.field input,.field textarea,.field select{
+  width:100%;border:1px solid var(--line);border-radius:11px;padding:13px 14px;
+  font:inherit;font-size:13px;outline:none;background:#fff;color:var(--ink);
+}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--orange)}
+.field textarea{min-height:95px;resize:vertical}
+.form button{
+  width:100%;border:0;background:var(--ink);color:#fff;padding:14px;border-radius:999px;
+  font:inherit;font-weight:700;cursor:pointer;margin-top:5px;
+}
+.form button:hover{background:#3A3636}
+
+/* FOOTER */
+footer{background:#fff;color:var(--ink);padding:35px 0;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:30px}
+.footer-logo{width:125px;filter:none}
+.footer-note{font-size:11px;color:#77716D}
+.footer-mail{font-size:12px;color:#4F4A47}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-grid,.about-grid,.cta-grid,.media-grid{grid-template-columns:1fr}
+  .hero{padding-top:65px}
+  .hero-grid{gap:45px}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .service:not(:nth-child(3n+1)){padding-left:0;border-left:0}
+  .service:nth-child(even){padding-left:25px;border-left:1px solid var(--line)}
+  .project-grid,.ai-compare{grid-template-columns:1fr}
+  .samples-grid,.motion-grid{grid-template-columns:1fr 1fr}
+  .cta-grid{gap:45px}
+}
+@media(max-width:620px){
+  .container{width:min(var(--max),calc(100% - 30px))}
+  .nav-inner{height:68px}
+  .nav-links a:not(.nav-cta){display:none}
+  .logo{width:125px}
+  section{padding:80px 0}
+  .hero{min-height:auto;padding:70px 0}
+  h1{font-size:46px}
+  .hero-card{min-height:350px;padding:30px}
+  .hero-card h2{font-size:37px}
+  .hero-number{font-size:65px}
+  .section-head{display:block}
+  .section-desc{margin-top:18px}
+  .about-grid{gap:40px}
+  .stats{grid-template-columns:1fr 1fr}
+  .services-grid,.samples-grid,.motion-grid{grid-template-columns:1fr}
+  .service,.service:nth-child(even){padding:25px 0;border-left:0}
+  .service-num{margin-bottom:25px}
+  .placeholder{min-height:260px!important}
+  .project-info h3{font-size:24px}
+  .cta{padding:80px 0}
+  .cta h2{font-size:46px}
+  .footer-inner{align-items:flex-start;flex-direction:column}
+}
+
+/* ALIGNMENT + EDITORIAL POLISH */
+.section-head > div:first-child { min-width: 0; }
+.section-title { margin: 0; }
+.section-desc { margin: 0; }
+.services-grid > .service:nth-child(3n+1) { padding-left: 0; }
+.project-grid > .project { min-width: 0; }
+.samples-grid > .sample { min-width: 0; }
+.motion-grid > .motion-card { min-width: 0; }
+.ai-compare > .ai-card { min-width: 0; }
+
+.ai-label{
+  font-size:10px;
+  letter-spacing:.16em;
+  font-weight:700;
+  color:#8C8783;
+  margin-bottom:15px;
+}
+.ai-card.featured .ai-label{color:var(--orange)}
+
+.ai-image-placeholder{
+  width:100%;
+  aspect-ratio:16/10;
+  border-radius:15px;
+  border:1px dashed #D7D2CE;
+  background:
+    linear-gradient(135deg,rgba(255,157,24,.07),transparent 50%),
+    #F7F6F4;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#9B9692;
+  font-size:10px;
+  letter-spacing:.13em;
+  margin-bottom:24px;
+}
+.ai-card.featured .ai-image-placeholder{
+  border-color:#514D4B;
+  background:
+    linear-gradient(135deg,rgba(255,157,24,.12),transparent 50%),
+    #302E2F;
+  color:#8F8986;
+}
+.ai-card h3{margin-bottom:11px}
+.ai-card p{margin-bottom:21px}
+.ai-card .ai-list{margin-bottom:0}
+
+/* Keep all major cards visually balanced */
+.project .placeholder,
+.sample .placeholder,
+.media-large .placeholder,
+.media-small .placeholder { text-align:center; }
+
+@media(max-width:900px){
+  .section-head{align-items:start}
+  .section-desc{max-width:620px}
+}
+
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#top"><img class="logo" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Logo.png" alt="Adirup Artistic Logo"></a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#campaigns">Campaigns</a>
+      <a href="#ai">AI + Thinking</a>
+      <a href="#work">Work</a>
+      <a href="#contact" class="nav-cta">Start a Project</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Adirup Artistic / Creative Studio</div>
+      <h1>We don't just make it <em>look good.</em><br>We make it work.</h1>
+      <p class="hero-copy">
+        A design and creative studio building campaign-ready visual communication for brands —
+        from the first idea to the final pixel, frame and print.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#campaigns">Explore Our Work</a>
+        <a class="btn secondary" href="#contact">Let's Talk →</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="mini">What we bring to the table</div>
+      <h2>Strategy.<br>Creative.<br><span>Execution.</span></h2>
+      <div class="hero-card-bottom">
+        <div class="hero-number">01</div>
+        <div class="hero-small">One creative partner across digital, performance, print, OOH and motion.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">01 / About Us</div>
+        <h2 class="section-title">Creative people.<br>Systems thinking.</h2>
+      </div>
+    </div>
+    <div class="about-grid">
+      <div class="about-big">Adirup Artistic is a <strong>creative studio</strong> built around the intersection of design, marketing and emerging AI.</div>
+      <div class="about-copy">
+        <p>We work with brands that need more than isolated graphics. We turn business objectives into campaign ideas, visual systems and content that can actually live across channels.</p>
+        <p>From a performance Meta creative to a complete sale campaign, a product film, an OOH panel or a print brochure — the goal stays the same: <strong>make the communication clear, distinctive and useful.</strong></p>
+        <div class="stats">
+          <div class="stat"><strong>5+</strong><span>Years in design</span></div>
+          <div class="stat"><strong>15+</strong><span>Core Industry Experts</span></div>
+          <div class="stat"><strong>∞</strong><span>Ways to build an idea</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">02 / Services</div>
+        <h2 class="section-title">Everything a campaign needs to come alive.</h2>
+      </div>
+      <p class="section-desc">Flexible creative support — from one-off assets to full campaign systems.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service">
+        <div class="service-num">01</div>
+        <h3>Brand & Identity</h3>
+        <p>Visual identities and brand systems designed to create recognition and consistency.</p>
+        <div class="tags"><span class="tag">Identity</span><span class="tag">Guidelines</span><span class="tag">Packaging</span></div>
+      </article>
+      <article class="service">
+        <div class="service-num">02</div>
+        <h3>Campaign Creative</h3>
+        <p>Big campaign ideas translated into a complete visual language across touchpoints.</p>
+        <div class="tags"><span class="tag">Campaigns</span><span class="tag">Concepts</span><span class="tag">Art Direction</span></div>
+      </article>
+      <article class="service">
+        <div class="service-num">03</div>
+        <h3>Performance Design</h3>
+        <p>Meta and Google creatives built around attention, clarity, offer communication and action.</p>
+        <div class="tags"><span class="tag">Meta</span><span class="tag">Google</span><span class="tag">D2C</span></div>
+      </article>
+      <article class="service">
+        <div class="service-num">04</div>
+        <h3>AI Creative</h3>
+        <p>AI-assisted product visuals, scenes, characters and concepts without sacrificing creative direction.</p>
+        <div class="tags"><span class="tag">Generative AI</span><span class="tag">Product</span><span class="tag">Visuals</span></div>
+      </article>
+      <article class="service">
+        <div class="service-num">05</div>
+        <h3>Motion & Video</h3>
+        <p>Motion graphics, product films, social videos and AI-generated video concepts.</p>
+        <div class="tags"><span class="tag">Motion</span><span class="tag">Reels</span><span class="tag">Video</span></div>
+      </article>
+      <article class="service">
+        <div class="service-num">06</div>
+        <h3>Print & OOH</h3>
+        <p>Brochures, standees, banners, hoardings and physical brand experiences built for scale.</p>
+        <div class="tags"><span class="tag">Print</span><span class="tag">OOH</span><span class="tag">Exhibitions</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="campaigns" class="campaigns">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">03 / Campaign Showcase</div>
+        <h2 class="section-title">Campaigns built as systems, not single posts.</h2>
+      </div>
+      <p class="section-desc">A campaign has a thought behind it. The visual language simply makes that thought impossible to miss.</p>
+    </div>
+    <div class="campaign-tabs">
+      <span class="tab active">Pay Day Sale</span>
+      <span class="tab">Independence Day Sale</span>
+    </div>
+    <div class="project-grid">
+      <article class="project">
+        <div class="placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\A2 Ghee Pay Day Sale.png" alt="Pay Day Sale"></div>
+        <div class="project-info">
+          <div class="type">D2C / Performance Campaign</div>
+          <h3>Pay Day Sale</h3>
+          <p>Offer-led creative designed to make the value immediately understandable while keeping the brand premium.</p>
+          <div class="project-meta"><span>Campaign Idea</span><span>Meta Ads</span><span>Social</span><span>Adaptations</span></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Ground Nut Oil 2 1080x1080.png" alt="Independence Day Sale"></div>
+        <div class="project-info">
+          <div class="type">Seasonal / D2C Campaign</div>
+          <h3>Independence Day Sale</h3>
+          <p>A festive sale system balancing Indian visual cues, product focus and a clean premium execution.</p>
+          <div class="project-meta"><span>Concept</span><span>Art Direction</span><span>Meta</span><span>Digital</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="ai" class="ai">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">04 / AI + Creativity</div>
+        <h2 class="section-title">AI can generate an image.<br>We build the <em>creative.</em></h2>
+      </div>
+      <p class="section-desc">Same tool. Different thinking. Here is the difference between a generic AI-generated image and a creatively directed AI visual.</p>
+    </div>
+    <div class="ai-compare">
+      <article class="ai-card">
+        <div class="ai-label">01 / GENERIC GENERATION</div>
+        <div class="ai-image-placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Creative 1(1_1).jpg" alt="Generic AI-Generated Image"></div>
+        <h3>Generic AI-Generated Image</h3>
+        <p>Visually polished, but the image exists mainly because the prompt asked for something attractive.</p>
+        <ul class="ai-list">
+          <li>Prompt → image → export</li>
+          <li>Visual novelty is the main objective</li>
+          <li>Little or no campaign thought behind it</li>
+          <li>Often difficult to extend into a larger idea</li>
+        </ul>
+      </article>
+      <article class="ai-card featured">
+        <div class="ai-label">02 / CREATIVE DIRECTION</div>
+        <div class="ai-image-placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Artboard 1 copy.png" alt="Creative Thinking + AI"></div>
+        <h3>Creative Thinking + AI</h3>
+        <p>The visual starts with an insight, idea or communication problem — then AI is used to execute that thought.</p>
+        <ul class="ai-list">
+          <li>Objective → insight → concept → visual</li>
+          <li>Every element has a communication purpose</li>
+          <li>Art direction controls composition and storytelling</li>
+          <li>The idea can expand into a campaign system</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">05 / Everyday Performance Work</div>
+        <h2 class="section-title">The everyday work that keeps brands moving.</h2>
+      </div>
+      <p class="section-desc">Product launches, offers, benefits, bundles, seasonal moments and everything between the big campaigns.</p>
+    </div>
+    <div class="samples-grid">
+      <article class="sample"><div class="placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\01.png" alt="Product + Offer"></div><div class="sample-content"><h3>Product + Offer</h3><p>Clear communication built for fast-scrolling audiences.</p></div></article>
+      <article class="sample"><div class="placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Shilajit Pointer 2.png" alt="Problem / Solution"></div><div class="sample-content"><h3>Problem / Solution</h3><p>Creative that starts with a consumer tension.</p></div></article>
+      <article class="sample"><div class="placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Apple Cider Vineger 1080x1080.png" alt="Product Story"></div><div class="sample-content"><h3>Product Story</h3><p>Turning features and ingredients into visual stories.</p></div></article>
+      <article class="sample"><div class="placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Monsoon Offer.png" alt="Seasonal Creative"></div><div class="sample-content"><h3>Seasonal Creative</h3><p>Moments adapted without losing brand identity.</p></div></article>
+      <article class="sample"><div class="placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Summer Sale All Products 1080x1080.png" alt="Bundle / Combo"></div><div class="sample-content"><h3>Bundle / Combo</h3><p>Making multiple products feel like one compelling proposition.</p></div></article>
+      <article class="sample"><div class="placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Pay Day Offer Squezzy + Chawanprash + Shilajit Gold 1200 x 628 copy.png" alt="Google / Display"></div><div class="sample-content"><h3>Google / Display</h3><p>Simple, high-clarity creative for intent-driven placements.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="print">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">06 / Print & OOH</div>
+        <h2 class="section-title">From a phone screen to a 20-foot wall.</h2>
+      </div>
+      <p class="section-desc">The medium changes. The thinking doesn't.</p>
+    </div>
+    <div class="media-grid">
+      <article class="media-large">
+        <div class="placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Mockup.jpg" alt="OOH"></div>
+        <div class="media-caption"><h3>OOH & Large Format</h3><p>Hoardings, stand panels, roll-ups, exhibition graphics and environmental communication.</p></div>
+      </article>
+      <div class="media-stack">
+        <article class="media-small"><div class="placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Brochure Mockup.jpg" alt="Brochures & Print"></div><div class="media-caption"><h3>Brochures & Print</h3><p>Editorial hierarchy, information design and premium production-ready layouts.</p></div></article>
+        <article class="media-small"><div class="placeholder"><img class="image" src="d:\Adirup Artistic\September 2026\Portfolio\adirup-artistic\Images\Box Mockup.jpg" alt="Packaging & Collateral"></div><div class="media-caption"><h3>Packaging & Collateral</h3><p>Physical touchpoints designed to feel like part of the same brand world.</p></div></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact" class="cta">
+  <div class="container cta-grid">
+    <div>
+      <div class="kicker" style="color:#3D3328">08 / Start a Project</div>
+      <h2>Have a brand that needs <br> <em>better creative?</em></h2>
+      <p class="cta-copy">Tell us what you're building, what isn't working, or simply what you want to make. We'll figure out the creative direction from there.</p>
+    </div>
+    <form class="form" onsubmit="handleSubmit(event)">
+      <h3>Let's make something.</h3>
+      <div class="field"><label>Name</label><input type="text" placeholder="Your name" required></div>
+      <div class="field"><label>Brand / Company</label><input type="text" placeholder="Brand name"></div>
+      <div class="field"><label>Email</label><input type="email" placeholder="you@company.com" required></div>
+      <div class="field">
+        <label>What do you need?</label>
+        <select>
+          <option>Campaign Creative</option>
+          <option>Performance Creatives</option>
+          <option>Branding / Identity</option>
+          <option>AI Creative / Video</option>
+          <option>Print / OOH</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field"><label>Tell us a little about it</label><textarea placeholder="Project, timeline, challenge, budget — whatever helps."></textarea></div>
+      <button type="submit">Send Project Brief →</button>
+      <p id="formMessage" style="display:none;text-align:center;font-size:12px;color:#6D6967;margin-top:12px">Thanks — your brief is ready. Connect this form to your preferred form backend to receive submissions.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <img class="footer-logo" src="d:\Adirup Artistic\july 2025\Logo\Logo.png">
+    <div class="footer-note">Creative • Design • AI • Motion • Print • Performance</div>
+    <div class="footer-mail">Adirup Artistic © 2026</div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e){
+  e.preventDefault();
+  document.getElementById('formMessage').style.display='block';
+}
+</script>
+</body>
+</html>
