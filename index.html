@@ -31,6 +31,26 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .container{width:min(var(--max),calc(100% - 48px));margin:auto}
 
+  .same-number {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  margin-top: 9px;
+  cursor: pointer;
+  font-size: 11px !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-weight: 500 !important;
+  color: #777 !important;
+}
+
+.same-number input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: #FF9D18;
+  cursor: pointer;
+}
 /* NAV */
 .nav{
   position:sticky;top:0;z-index:50;
@@ -567,8 +587,14 @@ footer{background:#fff;color:var(--ink);padding:35px 0;border-top:1px solid var(
       <p class="cta-copy">Tell us what you're building, what isn't working, or simply what you want to make. We'll figure out the creative direction from there.</p>
     </div>
 <form action="https://formspree.io/f/mppzgkjl" method="POST" class="form">
+
+  <input type="hidden"
+         name="_subject"
+         value="New Adirup Artistic Project Enquiry">
+
   <h3>Let's make something.</h3>
 
+  <!-- NAME -->
   <div class="field">
     <label for="name">Name</label>
     <input
@@ -580,6 +606,7 @@ footer{background:#fff;color:var(--ink);padding:35px 0;border-top:1px solid var(
     >
   </div>
 
+  <!-- COMPANY -->
   <div class="field">
     <label for="company">Brand / Company</label>
     <input
@@ -590,6 +617,7 @@ footer{background:#fff;color:var(--ink);padding:35px 0;border-top:1px solid var(
     >
   </div>
 
+  <!-- EMAIL -->
   <div class="field">
     <label for="email">Email</label>
     <input
@@ -601,8 +629,43 @@ footer{background:#fff;color:var(--ink);padding:35px 0;border-top:1px solid var(
     >
   </div>
 
+  <!-- CONTACT NUMBER -->
+  <div class="field">
+    <label for="phone">Contact Number</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="+91 98765 43210"
+      required
+    >
+  </div>
+
+  <!-- WHATSAPP -->
+  <div class="field">
+    <label for="whatsapp">WhatsApp Number</label>
+
+    <input
+      type="tel"
+      id="whatsapp"
+      name="whatsapp"
+      placeholder="+91 98765 43210"
+      required
+    >
+
+    <label class="same-number">
+      <input
+        type="checkbox"
+        id="sameWhatsapp"
+      >
+      <span>Same as contact number</span>
+    </label>
+  </div>
+
+  <!-- SERVICE -->
   <div class="field">
     <label for="service">What do you need?</label>
+
     <select id="service" name="service">
       <option value="Campaign Creative">Campaign Creative</option>
       <option value="Performance Creatives">Performance Creatives</option>
@@ -613,8 +676,10 @@ footer{background:#fff;color:var(--ink);padding:35px 0;border-top:1px solid var(
     </select>
   </div>
 
+  <!-- MESSAGE -->
   <div class="field">
     <label for="message">Tell us a little about it</label>
+
     <textarea
       id="message"
       name="message"
@@ -623,7 +688,10 @@ footer{background:#fff;color:var(--ink);padding:35px 0;border-top:1px solid var(
     ></textarea>
   </div>
 
-  <button type="submit">Send Project Brief →</button>
+  <button type="submit">
+    Send Project Brief →
+  </button>
+
 </form>
   </div>
 </section>
@@ -639,6 +707,31 @@ footer{background:#fff;color:var(--ink);padding:35px 0;border-top:1px solid var(
 </footer>
 
 <script>
+</script>
+  <script>
+const phoneInput = document.getElementById('phone');
+const whatsappInput = document.getElementById('whatsapp');
+const sameWhatsapp = document.getElementById('sameWhatsapp');
+
+sameWhatsapp.addEventListener('change', function () {
+
+  if (this.checked) {
+    whatsappInput.value = phoneInput.value;
+    whatsappInput.readOnly = true;
+  } else {
+    whatsappInput.readOnly = false;
+    whatsappInput.value = '';
+  }
+
+});
+
+phoneInput.addEventListener('input', function () {
+
+  if (sameWhatsapp.checked) {
+    whatsappInput.value = phoneInput.value;
+  }
+
+});
 </script>
 </body>
 </html>
